@@ -10,5 +10,7 @@ int		sorted(int size, int *num);
 int		countword(int *ac, char **av);
 int		*space(int *num, char *av, int *size);
 int		*sa(int *num);
-
+int *merge(int *a,int size);
+int **fill(int *a,int size);
+int **allocate(int size);
 #endif

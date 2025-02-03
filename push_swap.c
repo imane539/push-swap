@@ -3,7 +3,7 @@
 int	main(int ac, char **av)
 {
 	int	*a;
-	int	*b;
+	// int	*b;
     int size;
 	// int	i;
 
@@ -11,7 +11,6 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	a = add(ac, av,&size);
-    // printf("%d\t",size);
 	if (sorted(size, a) == 1 || size == 1)
 		return (0);
 	if (size == 2)
@@ -20,10 +19,12 @@ int	main(int ac, char **av)
 		ft_putstr_fd("sa\n", 1);
 		return (0);
 	}
+	a = merge(a,size);
+
 	// i = 0;
 	// while (a[i])
 	// {
 	// 	printf("%d\n", a[i++]);
 	// }
-	(void)b;
+	// (void)b;
 }
