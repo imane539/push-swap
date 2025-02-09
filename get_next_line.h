@@ -1,100 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-fouh <iel-fouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/08 19:19:38 by iel-fouh          #+#    #+#             */
-/*   Updated: 2024/12/08 19:19:48 by iel-fouh         ###   ########.fr       */
+/*   Created: 2024/12/09 08:58:06 by iel-fouh          #+#    #+#             */
+/*   Updated: 2024/12/09 08:58:11 by iel-fouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*ft_stop(char **buf)
-{
-	int		i;
-	char	*new;
-	char	*tmp;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif /* BUFFER_SIZE */
 
-	i = 0;
-	while (((*buf)[i]))
-	{
-		if ((*buf)[i] == '\n')
-		{
-			new = ft_substr(*buf, 0, i + 1);
-			tmp = ft_substr(*buf, i + 1, ft_strlen(*buf) - i);
-			free(*buf);
-			*buf = tmp;
-			return (new);
-		}
-		i++;
-	}
-	return (NULL);
-}
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-char	*ft_line(char **line, char *buffer)
-{
-	char	*tmp;
-	char	*new;
-
-	if (check_line(buffer))
-	{
-		new = ft_stop(&buffer);
-		tmp = ft_strjoin(*line, new);
-		free(*line);
-		free(new);
-		*line = tmp;
-	}
-	else
-	{
-		new = ft_strjoin(*line, buffer);
-		free(*line);
-		*line = new;
-		free(buffer);
-		buffer = NULL;
-	}
-	return (buffer);
-}
-
-char	*ft_read(int fd, char **line, char *buffer)
-{
-	int	r;
-
-	r = 1;
-	while (!check_line(*line) && r > 0)
-	{
-		if (ft_strlen(buffer) > 0)
-			buffer = ft_line(line, buffer);
-		if (ft_strlen(buffer) == 0)
-		{
-			free(buffer);
-			buffer = malloc((size_t)(BUFFER_SIZE + 1));
-			if (!buffer)
-				return (NULL);
-			r = read(fd, buffer, BUFFER_SIZE);
-			if (r <= 0)
-			{
-				free(buffer);
-				return (NULL);
-			}
-			buffer[r] = '\0';
-		}
-		if (!check_line(*line))
-			buffer = ft_line(line, buffer);
-	}
-	return (buffer);
-}
-
-char	*get_next_line(int fd)
-{
-	static char	*buffer;
-	char		*line;
-
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-	line = NULL;
-	buffer = ft_read(fd, &line, buffer);
-	return (line);
-}
+char	*get_next_line(int fd);
+char	*ft_line(char **line, char *buffer);
+size_t	ft_strlen(char *str);
+char	*ft_strdup(char *s1);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_substr(char *s, unsigned int start, size_t len);
+int		check_line(char *buff);
+char	*ft_read(int fd, char **line, char *buffer);
+char	*ft_stop(char **buf);
+#endif /* GET_NEXT_LINE_H */

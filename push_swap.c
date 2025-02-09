@@ -2,29 +2,35 @@
 
 int	main(int ac, char **av)
 {
-	int	*a;
-	// int	*b;
-    int size;
-	// int	i;
+	t_stack	*a;
+	int *num;
+   int size;
 
     size = 0;
 	if (ac == 1)
 		return (0);
-	a = add(ac, av,&size);
-	if (sorted(size, a) == 1 || size == 1)
-		return (0);
-	if (size == 2)
+	num = add(ac, av,&size);
+	// int i = 0;
+
+	// 	while(i < size)
+	// {
+	// 	printf("%d\n",num[i++]);
+	// }
+	a = push_stack(num,size);
+
+	if (sorted(a) == 1 || size == 1)
 	{
-		a = sa(a);
-		ft_putstr_fd("sa\n", 1);
+		free(num);
 		return (0);
 	}
-	a = merge(a,size);
-
-	// i = 0;
-	// while (a[i])
-	// {
-	// 	printf("%d\n", a[i++]);
-	// }
-	// (void)b;
+	if(size == 3 || size == 2)
+	{
+		sort_3(&a , size);
+	}
+	// a = sort(a);
+		while(a)
+	{
+		printf("%d\n",a->num);
+		a = a->next;
+	}
 }
