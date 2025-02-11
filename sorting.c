@@ -27,6 +27,7 @@ void sort_3(t_stack **a)
 }
 void sort_5(t_stack **a,int size,int *num)
 {
+    t_stack **b;
     if(size == 2)
     {
         *a = sa(*a);
@@ -38,11 +39,20 @@ void sort_5(t_stack **a,int size,int *num)
         sort_3(a);
         exit(0);
     }
-    // while(*a)
-	// {
-	// 	printf("%d\n",(*a)->num);
-	// 	(*a) = (*a)->next;
-	// }
+    else
+    {
+        pa(a,b);
+    }
+    while(*a)
+	{
+		printf("a:%d\n",(*a)->num);
+		(*a) = (*a)->next;
+	}
+       while(*b)
+	{
+		printf("b:%d\n",(*b)->num);
+		(*b) = (*b)->next;
+	}
    
 }
 t_stack *indexing(t_stack *a,int size,int *num)

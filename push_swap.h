@@ -24,6 +24,7 @@ int	sorted(t_stack *a);
 
 
 /*******operations****** */
+void pa(t_stack **a,t_stack **b);
 t_stack	*sa(t_stack *a);
 t_stack	*ra(t_stack *a);
 t_stack	*rra(t_stack *a);

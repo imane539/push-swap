@@ -1,4 +1,23 @@
 #include "push_swap.h"
+void pb(t_stack **a,t_stack **b)
+{
+    if(!b)
+        b = malloc(sizeof(t_stack *));
+    
+    t_stack **tmp;
+    tmp = a;
+    a = b;
+    b = b->next;
+    a->next = tmp;
+}
+void pa(t_stack **a,t_stack **b)
+{
+    t_stack **tmp;
+    tmp = a;
+    a = b;
+    b = b->next;
+    a->next = tmp;
+}
 t_stack	*sa(t_stack *a)
 {
 	t_stack *tmp;
