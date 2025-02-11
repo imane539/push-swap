@@ -1,7 +1,7 @@
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = push_swap.c utils.c handler.c sorting.c
+SRC = push_swap.c utils.c handler.c sorting.c operations.c
 LIBFT = libft/libft.a
 
 OBJECTS =$(SRC:.c=.o)

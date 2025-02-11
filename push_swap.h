@@ -8,13 +8,28 @@ typedef struct s_stack
     int index;
     struct s_stack *next;
 }t_stack;
+
+/******utils**** */
+t_stack	*ft_stklast(t_stack *stack);
+t_stack	*ft_stknew(int num);
 t_stack *push_stack(int *num,int size);
-int		duplicated(int *num, int number, int index);
 int	*add(int ac, char **av,int *size);
+
+/******handler**** */
 void	ft_error(int *num);
-int	sorted(t_stack *a);
 int		countword(int *ac, char **av);
 int		*space(int *num, char *av, int *size);
+int		duplicated(int *num, int number, int index);
+int	sorted(t_stack *a);
+
+
+/*******operations****** */
 t_stack	*sa(t_stack *a);
-void sort_3(t_stack **a,int size);
+t_stack	*ra(t_stack *a);
+t_stack	*rra(t_stack *a);
+/*******sorting**** */
+void sort_3(t_stack **a);
+void sort_5(t_stack **a,int size,int *num);
+int  *bubble_sort(int *num,int size);
+t_stack *indexing(t_stack *a,int size,int *num);
 #endif
