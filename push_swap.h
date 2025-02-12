@@ -6,10 +6,11 @@ typedef struct s_stack
 {
     int num;
     int index;
+    int position;
     struct s_stack *next;
 }t_stack;
 
-/******utils**** */
+/******stack_operations**** */
 int	ft_stksize(t_stack *a);
 t_stack	*ft_stklast(t_stack *stack);
 t_stack	*ft_stknew(int num);
@@ -30,9 +31,15 @@ void pa(t_stack **a,t_stack **b);
 t_stack	*sa(t_stack *a);
 t_stack	*ra(t_stack *a);
 t_stack	*rra(t_stack *a);
-/*******sorting**** */
-void sort_3(t_stack **a);
-void sort_5(t_stack **a,int size);
+/************utils****** */
+void push_to_b(t_stack **a,t_stack **b);
+t_stack *position(t_stack *a);
 void bubble_sort(t_stack *a,int *num,int size);
 t_stack *indexing(t_stack *a);
+
+/*******sorting**** */
+void sort_large(t_stack **a,int size);
+void sort_3(t_stack **a);
+void sort_5(t_stack **a,int size);
+
 #endif
