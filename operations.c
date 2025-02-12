@@ -1,22 +1,40 @@
 #include "push_swap.h"
 void pb(t_stack **a,t_stack **b)
 {
-    if(!b)
-        b = malloc(sizeof(t_stack *));
-    
-    t_stack **tmp;
-    tmp = a;
-    a = b;
-    b = b->next;
-    a->next = tmp;
+    if(!(*b))
+    {
+        (*b) = (*a);
+        (*a) = (*a)->next;
+        (*b)->next = NULL;
+    }
+    else
+    {
+        t_stack *tmp;
+        tmp = (*b);
+        (*b) = (*a);
+        (*a) = (*a)->next;
+        (*b)->next=tmp;
+    }
+    ft_putstr_fd("pb\n",1);
+
 }
 void pa(t_stack **a,t_stack **b)
 {
-    t_stack **tmp;
-    tmp = a;
-    a = b;
-    b = b->next;
-    a->next = tmp;
+    if(!(*a))
+    {
+        (*a) = (*b);
+        (*b) = (*b)->next;
+        (*a)->next = NULL;
+    }
+    else
+    {
+        t_stack *tmp;
+        tmp = (*a);
+        (*a) = (*b);
+        (*b) = (*b)->next;
+        (*a)->next=tmp;
+    }
+    ft_putstr_fd("pa\n",1);
 }
 t_stack	*sa(t_stack *a)
 {

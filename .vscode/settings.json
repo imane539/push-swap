@@ -64,6 +64,7 @@
     "initializer_list": "c",
     "span": "c",
     "chrono": "c",
-    "variant": "c"
+    "variant": "c",
+    "random": "c"
   }
 }

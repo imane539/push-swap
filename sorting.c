@@ -25,15 +25,16 @@ void sort_3(t_stack **a)
     }
    
 }
-void sort_5(t_stack **a,int size,int *num)
+void sort_5(t_stack **a,int size)
 {
     t_stack **b;
+    b = NULL;
     if(size == 2)
     {
         *a = sa(*a);
         exit(0);
     }
-    (*a) = indexing(*a,size,num);
+    (*a) = indexing(*a);
     if(size == 3)
     {
         sort_3(a);
@@ -41,27 +42,48 @@ void sort_5(t_stack **a,int size,int *num)
     }
     else
     {
-        pa(a,b);
-    }
-    while(*a)
-	{
-		printf("a:%d\n",(*a)->num);
-		(*a) = (*a)->next;
-	}
-       while(*b)
-	{
+        b = malloc(sizeof(t_stack *));
+        while(ft_stksize(*a) != 3)
+            pb(a,b);
+        (*a) = indexing(*a);
+        if(!sorted(*a))
+            sort_3(a);
+        while((*b) && ((*a)->num > (*b)->num))
+        {
+            pa(a,b);
+        }
+		
+
+        if((*b) && ((*a)->num < (*b)->num))
+        {
+             ra(*a);
+        printf("a:%d\n",(*a)->num);
 		printf("b:%d\n",(*b)->num);
-		(*b) = (*b)->next;
-	}
+        }
+           
+    }
+    // while(*a)
+	// {
+	// 	printf("a:%d\n",(*a)->num);
+	// 	(*a) = (*a)->next;
+	// }
+    //    while(*b)
+	// {
+	// 	printf("b:%d\n",(*b)->num);
+	// 	(*b) = (*b)->next;
+	// }
    
 }
-t_stack *indexing(t_stack *a,int size,int *num)
+t_stack *indexing(t_stack *a)
 {
-    int i;
+    int (i),(size);
+    int *num;
     t_stack *tmp;
+    size = ft_stksize(a);
     tmp = a;
     i = 0;
- 
+    num = malloc(sizeof(int) * size);
+    bubble_sort(a,num,size);
         while(a)
         {
             i = 0;
@@ -75,11 +97,16 @@ t_stack *indexing(t_stack *a,int size,int *num)
         }
     return tmp;
 }
-int *bubble_sort(int *num,int size)
+void bubble_sort(t_stack *a,int *num,int size)
 {
-    int max;
-    int i;
-    int j;
+    int (i),(max),(j);
+    
+    j = 0;
+    while(j < size)
+    {
+        num[j++] = a->num;
+        a = a->next;
+    }
     j = 0;
     while(j < size)
     {
@@ -98,5 +125,4 @@ int *bubble_sort(int *num,int size)
         } 
         j++;
     }
-    return num;
 }

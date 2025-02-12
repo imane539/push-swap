@@ -23,10 +23,10 @@ int	main(int ac, char **av)
 		free(num);
 		return (0);
 	}
-	num = bubble_sort(num,size);
+	a = indexing(a);
 	if(size < 6)
 	{
-		sort_5(&a , size,num);
+		sort_5(&a ,size);
 	}
 	// a = sort(a);
 	// 	while(a)

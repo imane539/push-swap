@@ -1,4 +1,20 @@
 #include "push_swap.h"
+int	ft_stksize(t_stack *a)
+{
+	int		i;
+	t_stack	*current;
+
+	i = 0;
+	if (!a)
+		return (i);
+	current = a;
+	while (current)
+	{
+		i++;
+		current = current->next;
+	}
+	return (i);
+}
 t_stack	*ft_stknew(int num)
 {
 	t_stack	*p;
