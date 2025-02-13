@@ -1,7 +1,7 @@
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address -g3
 
-SRC = push_swap.c utils.c handler.c sorting.c operations.c stack_operations.c
+SRC = push_swap.c utils.c handler.c sorting.c operations.c stack_operations.c chunk.c
 LIBFT = libft/libft.a
 
 OBJECTS =$(SRC:.c=.o)

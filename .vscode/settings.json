@@ -65,6 +65,7 @@
     "span": "c",
     "chrono": "c",
     "variant": "c",
-    "random": "c"
+    "random": "c",
+    "ratio": "c"
   }
 }

@@ -39,28 +39,28 @@ t_stack	*ft_stklast(t_stack *stack)
 }
 t_stack *push_stack(int *num,int size)
 {
-	t_stack **head;
+	t_stack *head;
 	t_stack *last;
 	t_stack *new;
 	int i;
 	i = 0;
-	head = malloc(sizeof(t_stack *));
-    *head =NULL;
+
+    head = NULL;
 	while(i < size)
 	{
 		new = ft_stknew(num[i]);
-		if(!(*head))
+		if(!(head))
 		{
-			*head = new;
+			head = new;
 		}
 		else
 		{
-			last = ft_stklast(*head);
+			last = ft_stklast(head);
 			last->next = new;
 		}
 		i++;
 	}
-	return (*head);
+	return (head);
 }
 int	*add(int ac, char **av,int *size)
 {

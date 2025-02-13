@@ -1,15 +1,17 @@
 #include "push_swap.h"
 void pb(t_stack **a,t_stack **b)
 {
+    t_stack *tmp;
+
     if(!(*b))
     {
         (*b) = (*a);
         (*a) = (*a)->next;
         (*b)->next = NULL;
+
     }
     else
     {
-        t_stack *tmp;
         tmp = (*b);
         (*b) = (*a);
         (*a) = (*a)->next;
@@ -36,17 +38,20 @@ void pa(t_stack **a,t_stack **b)
     }
     ft_putstr_fd("pa\n",1);
 }
-t_stack	*sa(t_stack *a)
+t_stack	*swap(t_stack *a,int check)
 {
 	t_stack *tmp;
     tmp = a;
     a = a->next;
     tmp->next = a->next;
     a->next = tmp;
+    if(check == 1)
     ft_putstr_fd("sa\n",1);
+    else
+    ft_putstr_fd("sb\n",1);
 	return (a);
 }
-t_stack	*ra(t_stack *a)
+t_stack	*rotate(t_stack *a,int check)
 {
 	t_stack *tmp;
     t_stack *last;
@@ -55,11 +60,13 @@ t_stack	*ra(t_stack *a)
     a = a->next;
     last->next = tmp;
     tmp->next=NULL;
+    if(check == 1)
     ft_putstr_fd("ra\n",1);
-
+    else
+    ft_putstr_fd("rb\n",1);
 	return (a);
 }
-t_stack	*rra(t_stack *a)
+t_stack	*reverse_rotate(t_stack *a,int check)
 {
 	t_stack *tmp;
 	t_stack *last;
@@ -71,6 +78,10 @@ t_stack	*rra(t_stack *a)
         last = last->next;
     a->next = tmp;
     last->next = NULL;
+    if(check == 1)
     ft_putstr_fd("rra\n",1);
+    else
+    ft_putstr_fd("rrb\n",1);
+
 	return (a);
 }

@@ -2,39 +2,17 @@
 void sort_large(t_stack **a,int size)
 {
     int range;
-    int i;
     t_stack **b;
 
-    i = 0;
     if(size > 400)
-        range = 36;
+        range = 50;
     else
-    range = 16;
-    (*a) = position(*a);
-    b = malloc(sizeof(t_stack *));
-    while(ft_stksize(*a) != 0)
-    {
-        if((*a)->index < i)
-        {
-            push_to_b(a,b);
-            (*b) = ra(*b);
-        }
-        else if((*a)->index <= i+range)
-            push_to_b(a,b);
-        else
-            push_to_b(a,b);
-        i++;
-        
-    }
-       while(*b)
-	{
-		printf("b:%d\n",(*b)->num);
-		(*b) = (*b)->next;
-	}
-    
+    range = 50;
+    b = fill_b(a,range);
+    a = fill_a(a,b);
     // while(*a)
 	// {
-	// 	printf("a:%d\n",(*a)->position);
+	// 	printf("a:%d\n",(*a)->num);
 	// 	(*a) = (*a)->next;
 	// }
 }
@@ -42,24 +20,24 @@ void sort_3(t_stack **a)
 {
     if((*a)->index == 0)
     {
-        (*a) = sa(*a);
-        (*a) = ra(*a);
+        (*a) = swap(*a,1);
+        (*a) = rotate(*a,1);
     }
    else if((*a)->index == 1)
     {
         if((*a)->next->index == 0)
-            (*a) = sa(*a);
+            (*a) = swap(*a,1);
         else
-            (*a) = rra(*a);
+            (*a) = reverse_rotate(*a,1);
     }
     else
     {
         if((*a)->next->index == 0)
-            (*a) = ra(*a);
+            (*a) = rotate(*a,1);
         else
         {
-            (*a) = sa(*a);
-            (*a) = rra(*a); 
+            (*a) = swap(*a,1);
+            (*a) = reverse_rotate(*a,1); 
         }
     }
    
@@ -73,11 +51,12 @@ void sort_5(t_stack **a,int size)
     if(size == 3)
     {
         sort_3(a);
-        exit(0);
+        return ;
     }
     else
     {
         b = malloc(sizeof(t_stack *));
+        (*b) = NULL;
         while(ft_stksize(*a) != 3)
         {
             if((*a)->index == 0)
@@ -86,14 +65,15 @@ void sort_5(t_stack **a,int size)
                 (*a) = indexing(*a);
             }
             else if((*a)->next->index == 0)
-                (*a) = sa(*a);
+                (*a) = swap(*a,1);
             else
-                (*a) = ra(*a);
+                (*a) = rotate(*a,1);
         }
         if(!sorted(*a))
             sort_3(a);
         while(*b)
-                pa(a,b);
+            pa(a,b);
+        free(b);
     }
 }
 

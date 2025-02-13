@@ -1,4 +1,17 @@
 #include "push_swap.h"
+t_stack *get_max(t_stack *b)
+{
+    t_stack *max;
+    max = b;
+    b = b->next;
+    while(b)
+    {
+        if(b->num > max->num)
+        max = b;
+        b = b->next;
+    }
+    return max;
+}
 void push_to_b(t_stack **a,t_stack **b)
 {
 	if(!(*b))
@@ -8,7 +21,7 @@ void push_to_b(t_stack **a,t_stack **b)
 		if((*b)->num > (*a)->num)
 		{
 			pb(a,b);
-			(*b) = sa(*b);
+			(*b) = swap(*b,0);
 		}
 		else
 			pb(a,b);
@@ -50,6 +63,7 @@ t_stack *indexing(t_stack *a)
             }
             a = a->next;
         }
+        free(num);
     return tmp;
 }
 void bubble_sort(t_stack *a,int *num,int size)
