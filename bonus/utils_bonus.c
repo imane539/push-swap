@@ -88,7 +88,9 @@ void execute_instructions(t_stack **a,char **instructions)
     while(instructions[i])
     {
         if(instructions[i][0] == 'p')
+        {
             push(a,b,instructions[i][0]);
+        }
         else if(instructions[i][0] == 's')
         {
             if(instructions[i][1] == 'a')
@@ -102,6 +104,7 @@ void execute_instructions(t_stack **a,char **instructions)
         }
         else
             rev_or_rot(a,b,instructions[i]);
+
         i++;
     }
    result(a,b);

@@ -5,7 +5,11 @@ void result(t_stack **a,t_stack **b)
 		ft_putstr_fd("OK", 1);
     else
 		ft_putstr_fd("KO", 1);
-
+    while(*a)
+    {
+        printf("%d",(*a)->num);
+        (*a) = (*a)->next;
+    }
     ft_sktclear(a);
     free(b);
     exit(0);
