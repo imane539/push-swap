@@ -1,4 +1,5 @@
 #include "push_swap.h"
+
 int	ft_stksize(t_stack *a)
 {
 	int		i;
@@ -15,6 +16,7 @@ int	ft_stksize(t_stack *a)
 	}
 	return (i);
 }
+
 t_stack	*ft_stknew(int num)
 {
 	t_stack	*p;
@@ -27,6 +29,7 @@ t_stack	*ft_stknew(int num)
 	p->next = NULL;
 	return (p);
 }
+
 t_stack	*ft_stklast(t_stack *stack)
 {
 	if (!stack)
@@ -37,19 +40,20 @@ t_stack	*ft_stklast(t_stack *stack)
 	}
 	return (stack);
 }
-t_stack *push_stack(int *num,int size)
-{
-	t_stack *head;
-	t_stack *last;
-	t_stack *new;
-	int i;
-	i = 0;
 
-    head = NULL;
-	while(i < size)
+t_stack	*push_stack(int *num, int size)
+{
+	t_stack	*head;
+	t_stack	*last;
+	t_stack	*new;
+	int		i;
+
+	i = 0;
+	head = NULL;
+	while (i < size)
 	{
 		new = ft_stknew(num[i]);
-		if(!(head))
+		if (!(head))
 		{
 			head = new;
 		}
@@ -62,13 +66,13 @@ t_stack *push_stack(int *num,int size)
 	}
 	return (head);
 }
-int	*add(int ac, char **av,int *size)
+
+int	*add(int ac, char **av, int *size)
 {
 	int	*num;
 
 	int (j), (sum), (error);
 	error = 0;
-	// i = 0;
 	j = 0;
 	sum = countword(&ac, av) + (ac - 1);
 	num = malloc(sum * sizeof(int));
@@ -89,5 +93,3 @@ int	*add(int ac, char **av,int *size)
 	}
 	return (num);
 }
-
-

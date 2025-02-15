@@ -9,8 +9,7 @@ void	ft_error(int *num)
 
 int	countword(int *ac, char **av)
 {
-	int (i), (count), (j);
-	int (index);
+	int (i), (count), (j), (index);
 	index = 0;
 	count = 0;
 	i = 0;
@@ -81,14 +80,11 @@ int	sorted(t_stack *a)
 {
 	while (a->next)
 	{
-		if (a->num > a->next->num )
+		if (a->num > a->next->num)
 		{
 			return (0);
 		}
 		a = a->next;
-
 	}
 	return (1);
 }
-
-	

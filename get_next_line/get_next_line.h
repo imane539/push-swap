@@ -1,17 +1,20 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-fouh <iel-fouh@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: iel-fouh <iel-fouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 08:58:06 by iel-fouh          #+#    #+#             */
-/*   Updated: 2024/12/09 08:58:11 by iel-fouh         ###   ########.fr       */
+/*   Updated: 2025/02/15 13:17:38 by iel-fouh         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+# include "../libft/libft.h"
+
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -24,10 +27,6 @@
 
 char	*get_next_line(int fd);
 char	*ft_line(char **line, char *buffer);
-size_t	ft_strlen(char *str);
-char	*ft_strdup(char *s1);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_substr(char *s, unsigned int start, size_t len);
 int		check_line(char *buff);
 char	*ft_read(int fd, char **line, char *buffer);
 char	*ft_stop(char **buf);

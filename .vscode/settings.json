@@ -66,6 +66,9 @@
     "chrono": "c",
     "variant": "c",
     "random": "c",
-    "ratio": "c"
+    "ratio": "c",
+    "push_swap_bonus.h": "c",
+    "libft.h": "c",
+    "get_next_line.h": "c"
   }
 }
