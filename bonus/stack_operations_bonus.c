@@ -80,7 +80,7 @@ int	*add(int ac, char **av, int *size)
 		exit(1);
 	while ((*size) < sum)
 	{
-		if(ft_strlen(av[j + 1]) == 0)
+		if(ft_strlen(av[j + 1]) == 0 || av[j + 1][0] == ' ')
 				ft_error(num);
 		if (ft_strchr(av[j + 1], ' '))
 			num = space(num, av[j + 1], size);
