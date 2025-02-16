@@ -1,8 +1,8 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
+# include "../libft/libft.h"
 
 typedef struct s_stack
 {
@@ -12,14 +12,15 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 /*********functions***** */
-void push(t_stack **a,t_stack **b,char in);
-void rev_or_rot(t_stack **a,t_stack **b,char *in);
-void result(t_stack **a,t_stack **b);
+void				push(t_stack **a, t_stack **b, char in);
+void				rev_or_rot(t_stack **a, t_stack **b, char *in);
+void				result(t_stack **a, t_stack **b, char **in);
+void				free_buf(char *instruct, char *in);
 /******stack_operations**** */
 int					ft_stksize(t_stack *a);
 t_stack				*ft_stklast(t_stack *stack);
 t_stack				*ft_stknew(int num);
-void	ft_sktclear(t_stack **a);
+void				ft_stkclear(t_stack **a);
 t_stack				*push_stack(int *num, int size);
 int					*add(int ac, char **av, int *size);
 /******handler**** */
@@ -37,10 +38,10 @@ t_stack				*rotate(t_stack *a);
 t_stack				*reverse_rotate(t_stack *a);
 
 /************utils****** */
-char **read_instructions(t_stack **a);
-void check_instructions(char *in,t_stack **a);
-void execute_instructions(t_stack **a,char **instructions);
-void	both(t_stack **a, t_stack **b,int check);
-void	errors(char *str,t_stack **a);
+char				**read_instructions(t_stack **a);
+void				check_instructions(char *in, t_stack **a, char *instruct);
+void				execute_instructions(t_stack **a, char **instructions);
+void				both(t_stack **a, t_stack **b, int check);
+void				errors(char *str, t_stack **a);
 
 #endif

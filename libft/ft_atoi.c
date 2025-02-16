@@ -6,18 +6,23 @@
 /*   By: iel-fouh <iel-fouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 18:18:11 by iel-fouh          #+#    #+#             */
-/*   Updated: 2025/02/15 17:25:47 by iel-fouh         ###   ########.fr       */
+/*   Updated: 2025/02/16 10:56:49 by iel-fouh         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "libft.h"
-
+static void handler(long long *num, char str, int sign,int *error)
+{
+		*num = (*num * 10) + str - 48;
+		if(((*num) * sign > 2147483647) || ((*num) * sign < -2147483648) || *num == 9223372036854775807)
+		{
+			*error = 1;
+		}
+}
 int	ft_atoi(const char *str, int *error)
 {
-	int		i;
-	int		sign;
-	long	num;
-	int		count;
+	int		(i),(sign),(count);
+	long long	num;
 
 	count = 0;
 	i = 0;
@@ -31,11 +36,12 @@ int	ft_atoi(const char *str, int *error)
 		if (str[i] == '-')
 			sign *= -1;
 		i++;
+		if(!str[i])
+		*error = 1;
 	}
 	while (str[i] && str[i] >= 48 && str[i] <= 57)
-		num = (num * 10) + str[i++] - 48;
-	if ((str[i] && (str[i] < 48 || str[i] > 57)) || (num * sign > 2147483647)
-		|| (num * sign < -2147483648))
+ 		handler(&num,str[i++],sign,error);
+	if ((str[i] && (str[i] < 48 || str[i] > 57)))
 		*error = 1;
 	return (num * sign);
 }

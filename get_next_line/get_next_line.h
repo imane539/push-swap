@@ -6,7 +6,7 @@
 /*   By: iel-fouh <iel-fouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 08:58:06 by iel-fouh          #+#    #+#             */
-/*   Updated: 2025/02/15 13:17:38 by iel-fouh         ###   ########.fr       */
+/*   Updated: 2025/02/16 09:28:02 by iel-fouh         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -14,7 +14,6 @@
 # define GET_NEXT_LINE_H
 
 # include "../libft/libft.h"
-
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -25,7 +24,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, int error);
 char	*ft_line(char **line, char *buffer);
 int		check_line(char *buff);
 char	*ft_read(int fd, char **line, char *buffer);

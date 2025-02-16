@@ -1,6 +1,6 @@
 #include "push_swap_bonus.h"
 
-void	ft_sktclear(t_stack **a)
+void	ft_stkclear(t_stack **a)
 {
 	t_stack	*tmp;
 
@@ -13,7 +13,6 @@ void	ft_sktclear(t_stack **a)
 		free(tmp);
 	}
 	*a = NULL;
-	exit(0);
 }
 
 int	main(int ac, char **av)
@@ -29,11 +28,6 @@ int	main(int ac, char **av)
 	num = add(ac, av, &size);
 	a = push_stack(num, size);
 	free(num);
-    instructions = read_instructions(&a);
-
-	execute_instructions(&a,instructions);
-    // int i;
-	// i = 0;
-	
-
+	instructions = read_instructions(&a);
+	execute_instructions(&a, instructions);
 }

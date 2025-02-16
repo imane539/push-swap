@@ -6,7 +6,7 @@
 /*   By: iel-fouh <iel-fouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 19:19:38 by iel-fouh          #+#    #+#             */
-/*   Updated: 2025/02/15 16:57:21 by iel-fouh         ###   ########.fr       */
+/*   Updated: 2025/02/16 09:28:41 by iel-fouh         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -87,11 +87,16 @@ char	*ft_read(int fd, char **line, char *buffer)
 	return (buffer);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int error)
 {
 	static char	*buffer;
 	char		*line;
 
+	if (error == 1)
+	{
+		free(buffer);
+		return (line);
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	line = NULL;

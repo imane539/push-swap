@@ -26,6 +26,8 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	num = add(ac, av, &size);
+	if(size == 0)
+		ft_error(num,NULL);
 	a = push_stack(num, size);
 	free(num);
 	if (sorted(a) == 1 || size == 1)

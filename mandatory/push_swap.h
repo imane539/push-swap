@@ -19,7 +19,7 @@ t_stack				*push_stack(int *num, int size);
 int					*add(int ac, char **av, int *size);
 
 /******handler**** */
-void				ft_error(int *num);
+void	ft_error(int *num,char **av);
 int					countword(int *ac, char **av);
 int					*space(int *num, char *av, int *size);
 int					duplicated(int *num, int number, int index);

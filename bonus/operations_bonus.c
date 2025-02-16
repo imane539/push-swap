@@ -41,7 +41,8 @@ void	pa(t_stack **a, t_stack **b)
 t_stack	*swap(t_stack *a)
 {
 	t_stack	*tmp;
-	if(ft_stksize(a) == 1)
+
+	if (ft_stksize(a) == 1)
 		return (a);
 	tmp = a;
 	a = a->next;
@@ -55,7 +56,7 @@ t_stack	*rotate(t_stack *a)
 	t_stack	*tmp;
 	t_stack	*last;
 
-	if(!a)
+	if (!a)
 		return (a);
 	last = ft_stklast(a);
 	tmp = a;
@@ -69,7 +70,8 @@ t_stack	*reverse_rotate(t_stack *a)
 {
 	t_stack	*tmp;
 	t_stack	*last;
-	if(!a)
+
+	if (!a)
 		return (a);
 	tmp = a;
 	last = a;

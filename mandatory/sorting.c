@@ -6,7 +6,7 @@ void	sort_large(t_stack **a, int size)
 	t_stack	**b;
 
 	if (size > 400)
-		range = 30;
+		range = 35;
 	else
 		range = 16;
 	b = fill_b(a, range);

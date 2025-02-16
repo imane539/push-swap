@@ -80,13 +80,15 @@ int	*add(int ac, char **av, int *size)
 		exit(1);
 	while ((*size) < sum)
 	{
+		if(!av[j + 1])
+		ft_error(num,NULL);
 		if (ft_strchr(av[j + 1], ' '))
 			num = space(num, av[j + 1], size);
 		else
 		{
 			num[*size] = ft_atoi(av[j + 1], &error);
 			if (error == 1 || duplicated(num, num[*size], *size) == 1)
-				ft_error(num);
+				ft_error(num,NULL);
 			(*size)++;
 		}
 		j++;
