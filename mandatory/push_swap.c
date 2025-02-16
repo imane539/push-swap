@@ -1,5 +1,13 @@
 #include "push_swap.h"
+int is_empty(char *str)
+{
+	int i;
 
+	i = 0;
+	while (str && str[i] == ' ')
+		i++;
+	return (str[i] == '\0');	
+}
 void	ft_sktclear(t_stack **a)
 {
 	t_stack	*tmp;

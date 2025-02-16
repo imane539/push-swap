@@ -22,7 +22,8 @@ void	pb(t_stack **a, t_stack **b)
 void	pa(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
-
+	if(!ft_stksize(*a) || !ft_stksize(*b))
+		return ;
 	if (!(*a))
 	{
 		(*a) = (*b);
@@ -41,7 +42,8 @@ void	pa(t_stack **a, t_stack **b)
 t_stack	*swap(t_stack *a)
 {
 	t_stack	*tmp;
-
+	if(!a)
+	return a;
 	if (ft_stksize(a) == 1)
 		return (a);
 	tmp = a;

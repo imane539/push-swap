@@ -24,12 +24,13 @@ int	countword(int *ac, char **av)
 	i = 0;
 	while (i < *ac - 1)
 	{
-		if (ft_strchr(av[i + 1], ' '))
+		if (!is_empty(av[i + 1]))
 		{
 			index++;
 			j = 0;
 			while (av[i + 1][j])
 			{
+				
 				while (av[i + 1][j] == ' ')
 					j++;
 				if (av[i + 1][j] != ' ' && av[i + 1][j])

@@ -34,8 +34,11 @@ $(NAME):$(OBJECTS) $(LIBFT)
 $(LIBFT):
 	make -C libft
 
-bonus:$(OBJECTSB) $(LIBFT)
+bonus:$(NAME_BONUS)
+
+$(NAME_BONUS):$(OBJECTSB) $(LIBFT)
 	cc	$(CFLAGS) $^ -o $(NAME_BONUS)
+
 
 clean :
 	make fclean -C libft

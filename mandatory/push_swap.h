@@ -42,7 +42,7 @@ t_stack				*indexing(t_stack *a);
 void				sort_large(t_stack **a, int size);
 void				sort_3(t_stack **a);
 void				sort_5(t_stack **a, int size);
-
+int is_empty(char *str);
 /********chunk *******/
 void				push_two(t_stack **a, t_stack **b);
 t_stack				**fill_b(t_stack **a, int range);

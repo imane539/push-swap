@@ -2,6 +2,8 @@
 
 void	both(t_stack **a, t_stack **b, int check)
 {
+	if(!ft_stksize(*a) || !ft_stksize(*a))
+	return ;
 	if (check == 1)
 	{
 		(*a) = swap(*a);
