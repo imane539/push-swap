@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   functions_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-fouh <iel-fouh@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 21:24:22 by iel-fouh          #+#    #+#             */
+/*   Updated: 2025/02/17 21:24:24 by iel-fouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 void	free_buf(char *instruct, char *in)
@@ -26,7 +38,6 @@ void	result(t_stack **a, t_stack **b, char **in)
 		free(in[i]);
 		i++;
 	}
-
 	free(in);
 	free(b);
 	ft_stkclear(a);

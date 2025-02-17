@@ -1,7 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handler_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-fouh <iel-fouh@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 21:24:31 by iel-fouh          #+#    #+#             */
+/*   Updated: 2025/02/17 21:24:32 by iel-fouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
-void	ft_error(int *num)
+void	ft_error(int *num, char **av)
 {
+	int	i;
+
+	i = 0;
+	if (av)
+	{
+		while (av[i])
+			free(av[i++]);
+		free(av);
+	}
 	ft_putstr_fd("Error\n", 2);
 	free(num);
 	exit(1);
@@ -15,7 +36,7 @@ int	countword(int *ac, char **av)
 	i = 0;
 	while (i < *ac - 1)
 	{
-		if (ft_strchr(av[i + 1], ' '))
+		if (!is_empty(av[i + 1]))
 		{
 			index++;
 			j = 0;
@@ -51,13 +72,13 @@ int	*space(int *num, char *av, int *size)
 	{
 		num[*size] = ft_atoi(args[j], &error);
 		if (error == 1 || duplicated(num, num[*size], *size) == 1)
-		{
-			free(args);
-			ft_error(num);
-		}
+			ft_error(num, args);
 		j++;
 		(*size)++;
 	}
+	j = 0;
+	while (args[j])
+		free(args[j++]);
 	free(args);
 	return (num);
 }

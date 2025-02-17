@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-fouh <iel-fouh@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 21:24:59 by iel-fouh          #+#    #+#             */
+/*   Updated: 2025/02/17 21:25:02 by iel-fouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 void	both(t_stack **a, t_stack **b, int check)
@@ -66,8 +78,7 @@ char	**read_instructions(t_stack **a)
 
 	instructions = NULL;
 	line = get_next_line(0, 0);
-	if (!line)
-		errors("KO", a);
+	line_error(line, a);
 	while (line)
 	{
 		check_instructions(line, a, instructions);
@@ -108,7 +119,6 @@ void	execute_instructions(t_stack **a, char **instructions)
 		}
 		else
 			rev_or_rot(a, b, instructions[i]);
-
 		i++;
 	}
 	result(a, b, instructions);
