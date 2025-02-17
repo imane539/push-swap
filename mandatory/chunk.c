@@ -1,7 +1,25 @@
 #include "push_swap.h"
 
+t_stack	*get_min(t_stack *a)
+{
+	t_stack	*min;
+
+	min = a;
+	a = a->next;
+	while (a)
+	{
+		if (a->num < min->num)
+			min = a;
+		a = a->next;
+	}
+	return (min);
+}
 void	push_two(t_stack **a, t_stack **b)
 {
+	t_stack	*min;
+
+	min = get_min(*a);
+	(*a) = position(*a);
 	while (ft_stksize(*a) != 3)
 	{
 		if ((*a)->index == 0)
@@ -11,6 +29,8 @@ void	push_two(t_stack **a, t_stack **b)
 		}
 		else if ((*a)->next->index == 0)
 			(*a) = swap(*a, 1);
+		else if (min->position > ft_stksize(*a) / 2)
+			(*a) = reverse_rotate(*a, 1);
 		else
 			(*a) = rotate(*a, 1);
 	}
@@ -22,6 +42,7 @@ t_stack	**fill_b(t_stack **a, int range)
 	int		i;
 
 	i = 0;
+	(*a) = indexing(*a);
 	(*a) = position(*a);
 	b = malloc(sizeof(t_stack *));
 	(*b) = NULL;
@@ -40,7 +61,6 @@ t_stack	**fill_b(t_stack **a, int range)
 		}
 		else
 			(*a) = rotate(*a, 1);
-		// (*a)=indexing(*a);
 	}
 	return (b);
 }

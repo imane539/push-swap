@@ -19,7 +19,7 @@ t_stack				*push_stack(int *num, int size);
 int					*add(int ac, char **av, int *size);
 
 /******handler**** */
-void	ft_error(int *num,char **av);
+void				ft_error(int *num, char **av);
 int					countword(int *ac, char **av);
 int					*space(int *num, char *av, int *size);
 int					duplicated(int *num, int number, int index);
@@ -42,11 +42,11 @@ t_stack				*indexing(t_stack *a);
 void				sort_large(t_stack **a, int size);
 void				sort_3(t_stack **a);
 void				sort_5(t_stack **a, int size);
-int is_empty(char *str);
+int					is_empty(char *str);
 /********chunk *******/
 void				push_two(t_stack **a, t_stack **b);
 t_stack				**fill_b(t_stack **a, int range);
 t_stack				**fill_a(t_stack **a, t_stack **b);
 void				ft_sktclear(t_stack **a);
-
+t_stack				*get_min(t_stack *a);
 #endif

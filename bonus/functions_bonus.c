@@ -26,6 +26,7 @@ void	result(t_stack **a, t_stack **b, char **in)
 		free(in[i]);
 		i++;
 	}
+
 	free(in);
 	free(b);
 	ft_stkclear(a);

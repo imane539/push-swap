@@ -1,16 +1,16 @@
 #include "push_swap.h"
 
-void	ft_error(int *num,char **av)
+void	ft_error(int *num, char **av)
 {
-	int i;
+	int	i;
+
 	i = 0;
-	if(av)
+	if (av)
 	{
-		while(av[i])
-		free(av[i++]);
+		while (av[i])
+			free(av[i++]);
 		free(av);
 	}
-	
 	ft_putstr_fd("Error\n", 2);
 	free(num);
 	exit(1);
@@ -30,7 +30,6 @@ int	countword(int *ac, char **av)
 			j = 0;
 			while (av[i + 1][j])
 			{
-				
 				while (av[i + 1][j] == ' ')
 					j++;
 				if (av[i + 1][j] != ' ' && av[i + 1][j])
@@ -61,13 +60,13 @@ int	*space(int *num, char *av, int *size)
 	{
 		num[*size] = ft_atoi(args[j], &error);
 		if (error == 1 || duplicated(num, num[*size], *size) == 1)
-			ft_error(num,args);
+			ft_error(num, args);
 		j++;
 		(*size)++;
 	}
 	j = 0;
-	while(args[j])
-	free(args[j++]);
+	while (args[j])
+		free(args[j++]);
 	free(args);
 	return (num);
 }

@@ -1,13 +1,15 @@
 #include "push_swap.h"
-int is_empty(char *str)
+
+int	is_empty(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str && str[i] == ' ')
 		i++;
-	return (str[i] == '\0');	
+	return (str[i] == '\0');
 }
+
 void	ft_sktclear(t_stack **a)
 {
 	t_stack	*tmp;
@@ -34,8 +36,8 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	num = add(ac, av, &size);
-	if(size == 0)
-		ft_error(num,NULL);
+	if (size == 0)
+		ft_error(num, NULL);
 	a = push_stack(num, size);
 	free(num);
 	if (sorted(a) == 1 || size == 1)
@@ -45,7 +47,6 @@ int	main(int ac, char **av)
 		a = swap(a, 1);
 		ft_sktclear(&a);
 	}
-	a = indexing(a);
 	if (size < 6)
 	{
 		sort_5(&a, size);

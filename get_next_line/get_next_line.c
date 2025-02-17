@@ -91,6 +91,7 @@ char	*get_next_line(int fd, int error)
 {
 	static char	*buffer;
 	char		*line;
+
 	line = NULL;
 	if (error == 1)
 	{
