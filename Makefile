@@ -41,12 +41,13 @@ $(NAME_BONUS):$(OBJECTSB) $(LIBFT)
 
 
 clean :
-	make fclean -C libft
+	make clean -C libft
 	rm -f $(OBJECTS) 
 	rm -f $(OBJECTSB) 
 
 	
 fclean : clean 
+	make fclean -C libft
 	rm -f $(NAME)
 	rm -f $(NAME_BONUS)
 
@@ -54,4 +55,4 @@ re : fclean all
 
 # .PHONY:re all fclean clean 
 
-.SECONDARY : $(OBJECTS)
+.SECONDARY : $(OBJECTS) $(OBJECTSB) 
